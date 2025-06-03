@@ -7,6 +7,11 @@
   use Illuminate\Support\Facades\Route;
 
   Route::get('/', function () {
+    \Log::info('Homepage diakses');
+    return view('welcome');
+});
+
+  Route::get('/', function () {
       if (auth()->check()) {
           if (auth()->user()->is_admin) {
               return redirect('/admin/dashboard');
